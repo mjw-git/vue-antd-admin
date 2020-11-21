@@ -1,5 +1,5 @@
 {
-  "name": "qm-store",
+  "name": "vue-antd-admin",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,6 +7,9 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "ant-design-vue": "^2.0.0-rc.1",
+    "axios": "^0.21.0",
+    "babel-plugin-import": "^1.13.1",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
@@ -19,6 +22,7 @@
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "less": "^3.0.4",
-    "less-loader": "^5.0.0"
+    "less-loader": "^5.0.0",
+    "mockjs": "^1.1.0"
   }
 }
