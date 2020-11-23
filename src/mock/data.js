@@ -8,6 +8,10 @@ export const product = [
     value: "订单管理",
   },
   {
+    id: 6,
+    value: "优惠券",
+  },
+  {
     id: 3,
     value: "客户管理",
   },
@@ -18,9 +22,5 @@ export const product = [
   {
     id: 5,
     value: "商品类别",
-  },
-  {
-    id: 6,
-    value: "优惠券",
   },
 ];
