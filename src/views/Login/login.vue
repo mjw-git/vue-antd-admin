@@ -77,14 +77,14 @@ export default {
       validate()
         .then(async () => {
           const res = await userLogin(form);
-          console.log(res);
+          console.log(res.data.data);
           if (res.data.code === 200) {
             message.success("登录成功");
-            store.commit(`user/${SET_IS_LOGIN}`, true);
-            localStorage.user_info = res.data.data;
+            console.log(res.data.data);
+            localStorage.setItem("user_info", JSON.stringify(res.data.data));
             router.push("/admin");
           } else {
-            message.error("登录失败");
+            message.error("用户名或密码输入错误");
           }
           toRaw(form);
         })

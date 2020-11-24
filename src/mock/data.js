@@ -2,26 +2,37 @@ export const product = [
   {
     id: 1,
     value: "商品管理",
+    icon: "BarsOutlined",
   },
   {
     id: 2,
     value: "订单管理",
-  },
-  {
-    id: 6,
-    value: "优惠券",
+    icon: "ProfileOutlined",
   },
   {
     id: 3,
-    value: "客户管理",
+    value: "优惠券",
+    icon: "PayCircleOutlined",
   },
   {
     id: 4,
-    value: "财务报表",
+    value: "客户管理",
+    icon: "RobotOutlined",
   },
   {
     id: 5,
+    value: "财务报表",
+    icon: "TransactionOutlined",
+  },
+  {
+    id: 6,
     value: "商品类别",
+    icon: "AppstoreOutlined",
+  },
+  {
+    id: 7,
+    value: "账户管理",
+    icon: "SettingOutlined",
   },
 ];
 export const loginSuccess = {

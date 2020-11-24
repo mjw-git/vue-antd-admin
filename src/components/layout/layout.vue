@@ -6,6 +6,7 @@
       <div class="logo">Vue-antd-admin</div>
       <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys">
         <a-menu-item v-for="(item, index) of Menu" :key="index">
+          <component :is="item.icon"></component>
           <span class="nav-text">{{ item.value }}</span>
         </a-menu-item>
       </a-menu>
@@ -22,7 +23,7 @@
               <div id="quit">退出登录</div>
             </div>
           </template>
-          <span id="nickname">管理员</span>
+          <span id="nickname">{{ user_info.name }}</span>
         </a-popover>
       </a-layout-header>
       <a-layout-content>
@@ -33,16 +34,37 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 import Main from "./main";
-import { UserOutlined } from "@ant-design/icons-vue";
+import { useStore } from "vuex";
+import {
+  UserOutlined,
+  BarsOutlined,
+  ProfileOutlined,
+  PayCircleOutlined,
+  RobotOutlined,
+  TransactionOutlined,
+  AppstoreOutlined,
+  SettingOutlined
+} from "@ant-design/icons-vue";
 import { getMenu } from "../../api/global/global-api";
 export default {
   components: {
     Main,
-    UserOutlined
+    BarsOutlined,
+    UserOutlined,
+    ProfileOutlined,
+    PayCircleOutlined,
+    RobotOutlined,
+    TransactionOutlined,
+    AppstoreOutlined,
+    SettingOutlined
   },
   setup(props, content) {
+    const store = useStore();
+    const user_info = reactive({
+      name: store.state.user.USER_DETAIL.name
+    });
     const selectedKeys = ref([0]);
     const Menu = ref([]);
     getMenu().then((res) => {
@@ -51,7 +73,9 @@ export default {
 
     return {
       Menu,
-      selectedKeys
+      selectedKeys,
+      store,
+      user_info
     };
   }
 };
