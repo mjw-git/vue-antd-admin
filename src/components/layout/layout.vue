@@ -36,7 +36,7 @@
 import { ref } from "vue";
 import Main from "./main";
 import { UserOutlined } from "@ant-design/icons-vue";
-import { getMenu } from "../../api/global/getMenu";
+import { getMenu } from "../../api/global/global-api";
 export default {
   components: {
     Main,

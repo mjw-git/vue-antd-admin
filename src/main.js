@@ -11,11 +11,14 @@ import {
   Avatar,
   Form,
   Input,
+  message,
 } from "ant-design-vue";
 import "ant-design-vue/dist/antd.css";
 import Mock from "./mock/mock.js";
 const app = createApp(App);
 app.config.globalProperties.$axios = instance;
+app.config.globalProperties.$message = message;
+app.provide("$message", message);
 app
   .use(Button)
   .use(Layout)

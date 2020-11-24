@@ -8,7 +8,7 @@ const router = createRouter({
 // 全局路由监听
 
 router.beforeEach((to, from, next) => {
-  if (to.path !== "/" && !localStorage.islogin) {
+  if (to.path !== "/" && !localStorage.user_info) {
     message.error("请先登录");
     next("/");
   } else next();

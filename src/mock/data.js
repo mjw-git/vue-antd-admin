@@ -24,3 +24,16 @@ export const product = [
     value: "商品类别",
   },
 ];
+export const loginSuccess = {
+  code: 200,
+  message: "登录成功",
+  data: {
+    name: "mengjiwei",
+    username: 1366666666,
+  },
+};
+export const loginFail = {
+  code: 500,
+  message: "登录失败",
+  data: null,
+};

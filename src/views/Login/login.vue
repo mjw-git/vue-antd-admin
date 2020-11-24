@@ -2,16 +2,29 @@
   <div id="loginForm">
     <div id="title">vue-antd-admin</div>
     <div>
-      <a-form id="form" :label-col="labelCol" :wrapper-col="wrapperCol">
-        <a-form-item>
+      <a-form
+        labelAlign="right"
+        id="form"
+        :label-col="labelCol"
+        :wrapper-col="wrapperCol"
+      >
+        <a-form-item v-bind="validateInfos.username">
           <template #label><span id="label"> 用户名</span></template>
-          <a-input v-model:value="form.username" placeholder="1366666666" />
+          <a-input
+            allowClear
+            v-model:value="form.username"
+            placeholder="1366666666"
+          />
         </a-form-item>
-        <a-form-item>
+        <a-form-item v-bind="validateInfos.password">
           <template #label><span id="label"> 密码</span></template>
-          <a-input v-model:value="form.password" placeholder="123456" />
+          <a-input
+            allowClear
+            v-model:value="form.password"
+            placeholder="123456"
+          />
         </a-form-item>
-        <a-form-item>
+        <a-form-item style="margin-left: 50px">
           <a-button @click="login" type="primary">登录</a-button>
         </a-form-item>
       </a-form>
@@ -20,34 +33,71 @@
 </template>
 
 <script>
+import { userLogin } from "../../api/global/global-api";
 import { SET_IS_LOGIN } from "../../store/type";
 import { useRouter } from "vue-router";
-import { reactive, ref } from "vue";
+import { reactive, ref, toRaw, getCurrentInstance, inject } from "vue";
 import { useStore } from "vuex";
+import { useForm } from "@ant-design-vue/use";
+import { Form, message } from "ant-design-vue";
 export default {
   setup() {
+    const message = inject("$message");
+    console.log(message);
     const router = useRouter();
     const store = useStore();
+    const form = reactive({
+      username: "",
+      password: ""
+    });
     const labelCol = reactive({
       span: 6
     });
     const wrapperCol = reactive({
       span: 18
     });
-    const form = reactive({
-      username: "",
-      password: ""
+    const rules = reactive({
+      username: [
+        {
+          required: true,
+          message: "请输入用户名"
+        }
+      ],
+      password: [
+        {
+          required: true,
+          message: "请输入正确格式的密码,至少六位",
+          pattern: /.{6,}/
+        }
+      ]
     });
-    const login = () => {
-      store.commit(`user/${SET_IS_LOGIN}`, true);
+    const { resetFields, validate, validateInfos } = useForm(form, rules);
 
-      router.push("/admin");
+    const login = () => {
+      validate()
+        .then(async () => {
+          const res = await userLogin(form);
+          console.log(res);
+          if (res.data.code === 200) {
+            message.success("登录成功");
+            store.commit(`user/${SET_IS_LOGIN}`, true);
+            localStorage.user_info = res.data.data;
+            router.push("/admin");
+          } else {
+            message.error("登录失败");
+          }
+          toRaw(form);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     };
     return {
       form,
       labelCol,
       wrapperCol,
-      login
+      login,
+      validateInfos
     };
   }
 };
@@ -105,7 +155,7 @@ export default {
   flex-direction: column;
   align-items: center;
   background-image: url("http://ww1.sinaimg.cn/large/005ZSj0Ggy1gkzm4hcwhyj31hc0u0npd.jpg");
-  background-size: 100%;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 </style>
