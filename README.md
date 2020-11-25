@@ -4,7 +4,6 @@
 
 antd 用的是 2.0.0 官方文档查看这里https://2x.antdv.com/components/layout-cn/  
 vue3 文档查看这里https://vue3js.cn/docs/zh/guide/introduction.html
-基于 vue3.0+antd2.0.0+vuex4.0+vue-router4.0
 
 #### 1、使用 composition API
 
