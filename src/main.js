@@ -13,7 +13,7 @@ import {
   Input,
   message,
 } from "ant-design-vue";
-import "ant-design-vue/dist/antd.css";
+// import "ant-design-vue/dist/antd.less";
 import Mock from "./mock/mock.js";
 const app = createApp(App);
 app.config.globalProperties.$axios = instance;
