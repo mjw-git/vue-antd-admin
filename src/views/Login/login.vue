@@ -82,7 +82,7 @@ export default {
             message.success("登录成功");
             console.log(res.data.data);
             localStorage.setItem("user_info", JSON.stringify(res.data.data));
-            router.push("/admin");
+            router.push("/admin/introduction");
           } else {
             message.error("用户名或密码输入错误");
           }

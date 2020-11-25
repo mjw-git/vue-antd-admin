@@ -12,6 +12,7 @@ import {
   Form,
   Input,
   message,
+  Select,
 } from "ant-design-vue";
 // import "ant-design-vue/dist/antd.less";
 import Mock from "./mock/mock.js";
@@ -26,7 +27,8 @@ app
   .use(Popover)
   .use(Avatar)
   .use(Form)
-  .use(Input);
+  .use(Input)
+  .use(Select);
 app.use(router);
 app.use(store);
 app.mount("#app");

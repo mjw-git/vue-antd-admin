@@ -18,5 +18,6 @@ export default {
   background: #fff;
   width: 98%;
   min-height: 580px;
+  padding: 20px;
 }
 </style>
