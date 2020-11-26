@@ -1,5 +1,5 @@
 {
-  "name": "vue-antd-admin",
+  "name": "vueantdadmin",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,10 +10,12 @@
     "ant-design-vue": "^2.0.0-rc.1",
     "axios": "^0.21.0",
     "babel-plugin-import": "^1.13.1",
+    "compression-webpack-plugin": "^6.1.1",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0-0",
+    "xlsx": "^0.16.9"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

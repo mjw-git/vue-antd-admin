@@ -2,7 +2,7 @@ export const Indexroutes = [
   {
     path: "/",
     name: "Login",
-    component: () => import("../views/Login/login.vue"),
+    component: () => import("../views/login/login.vue"),
   },
   {
     path: "/404",

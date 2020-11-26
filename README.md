@@ -15,6 +15,8 @@ vue3 文档查看这里https://vue3js.cn/docs/zh/guide/introduction.html
 yarn install
 ```
 
+#### 如果 yarn 安装依赖失败，请删除 yarn.lock 执行 npm install 来安装依赖
+
 ```
 yarn serve
 ```

@@ -1,6 +1,6 @@
 import { SET_IS_LOGIN, SET_USER_DETAIL } from "../type";
 const state = {
-  USER_DETAIL: JSON.parse(localStorage.user_info),
+  USER_DETAIL: localStorage.user_info ? JSON.parse(localStorage.user_info) : {},
   IS_LOGIN: !!localStorage.user_info,
 };
 const mutations = {
