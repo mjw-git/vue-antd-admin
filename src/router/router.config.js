@@ -19,7 +19,7 @@ export const Mainroutes = [
       {
         path: "/admin/introduction",
         name: "Introduction",
-        component: () => import("../views/introduction/introduction"),
+        component: () => import("../views/introduction/Introduction"),
         meta: { name: "后台介绍", id: 0 },
       },
       {
