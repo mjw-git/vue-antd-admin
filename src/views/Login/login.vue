@@ -122,14 +122,14 @@ export default {
 #title {
   animation: come 1s ease;
   animation-fill-mode: forwards;
-  margin-top: 60px;
+  margin-top: 10%;
   font-family: "vue-admin";
   font-size: 64px;
   color: #eee;
 }
 @keyframes come {
   from {
-    transform: translateY(-100px);
+    transform: translateY(-50%);
     opacity: 0;
     opacity: 0;
   }
@@ -140,7 +140,7 @@ export default {
   }
 }
 #form {
-  margin-top: 80px;
+  margin-top: 10%;
   animation: come 1s ease;
   animation-fill-mode: forwards;
 }
