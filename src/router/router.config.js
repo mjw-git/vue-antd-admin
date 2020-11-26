@@ -12,7 +12,7 @@ export const Indexroutes = [
 ];
 export const Mainroutes = [
   {
-    path: "/admin",
+    path: "/admin/introduction",
     name: "Admin",
     component: () => import("../components/layout/layout"),
     children: [

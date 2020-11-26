@@ -30,7 +30,6 @@ const table = {
   detail: table_detail,
 };
 mock.mock(API.login, "post", (options) => {
-  console.log(options);
   if (
     JSON.parse(options.body).username === "13666666666" &&
     JSON.parse(options.body).password === "123456"
