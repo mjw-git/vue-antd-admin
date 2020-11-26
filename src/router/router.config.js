@@ -2,7 +2,7 @@ export const Indexroutes = [
   {
     path: "/",
     name: "Login",
-    component: () => import("../views/Login/login.vue"),
+    component: () => import("../views/login/login.vue"),
   },
   {
     path: "/404",
@@ -19,7 +19,7 @@ export const Mainroutes = [
       {
         path: "/admin/introduction",
         name: "Introduction",
-        component: () => import("../views/introduction/Introduction"),
+        component: () => import("../views/introduction/introduction"),
         meta: { name: "后台介绍", id: 0 },
       },
       {
