@@ -10,6 +10,7 @@
     "ant-design-vue": "^2.0.0-rc.1",
     "axios": "^0.21.0",
     "babel-plugin-import": "^1.13.1",
+    "compression-webpack-plugin": "^6.1.1",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
