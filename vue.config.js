@@ -1,6 +1,6 @@
 const CompressionPlugin = require("compression-webpack-plugin");
 module.exports = {
-  publicPath: "./",
+  publicPath: "/",
   outputDir: "dist",
   assetsDir: "assets", // 静态资源目录 (js, css, img, fonts)
   productionSourceMap: false, // 生产环境 sourceMap，不生成map文件
