@@ -5,7 +5,11 @@
     >
       <div class="logo">Vue-antd-admin</div>
       <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys">
-        <a-menu-item v-for="item of Menu" :key="item.id">
+        <a-menu-item
+          @click="goMenu(item.path)"
+          v-for="item of Menu"
+          :key="item.id"
+        >
           <component :is="item.icon"></component>
           <span class="nav-text">{{ item.value }}</span>
         </a-menu-item>
@@ -80,13 +84,17 @@ export default {
       router.push("/");
     };
     const title = computed(() => route.meta.name);
+    const goMenu = (data) => {
+      router.push(data);
+    };
     return {
       Menu,
       selectedKeys,
       store,
       user_info,
       title,
-      quit
+      quit,
+      goMenu
     };
   }
 };
