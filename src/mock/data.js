@@ -32,8 +32,18 @@ export const product = [
   },
   {
     id: 7,
-    value: "账户管理",
+    value: "人员管理",
     icon: "SettingOutlined",
+    children: [
+      {
+        id: 8,
+        value: "消费者账户",
+      },
+      {
+        id: 9,
+        value: "管理员账户",
+      },
+    ],
   },
 ];
 export const loginSuccess = {

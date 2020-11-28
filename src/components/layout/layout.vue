@@ -4,15 +4,23 @@
       :style="{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0 }"
     >
       <div class="logo">Vue-antd-admin</div>
+
       <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys">
-        <a-menu-item
-          @click="goMenu(item.path)"
-          v-for="item of Menu"
-          :key="item.id"
-        >
-          <component :is="item.icon"></component>
-          <span class="nav-text">{{ item.value }}</span>
-        </a-menu-item>
+        <div v-for="item of Menu" :key="item.id">
+          <a-sub-menu v-if="item.children">
+            <template #title
+              ><component :is="item.icon"></component>
+              <span class="nav-text">{{ item.value }}</span></template
+            >
+            <a-menu-item v-for="item2 in item.children" :key="item2.id">{{
+              item2.value
+            }}</a-menu-item>
+          </a-sub-menu>
+          <a-menu-item @click="goMenu(item.path)" v-else>
+            <component :is="item.icon"></component>
+            <span class="nav-text">{{ item.value }}</span>
+          </a-menu-item>
+        </div>
       </a-menu>
     </a-layout-sider>
     <a-layout :style="{ marginLeft: '200px', background: '#eee' }">
