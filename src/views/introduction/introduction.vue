@@ -13,7 +13,7 @@
       2、mock数据保存在mock文件夹下，data.js可以用来初始化常量数据，mock.js为主文件，如要关闭mock数据只需在main.js中注释mock的引入即可，封装
       的axios在untils/request.js下,axios挂载在全局上推荐使用inject，provide来使用。
     </p>
-    <p>3、。。。。</p>
+    <p>3、支持侧边栏多级嵌套菜单,具体格式可参考mock/data.js下的product格式</p>
 
     <router-link to="/admin/product">点击开始</router-link>
   </div>

@@ -9,26 +9,31 @@ export const product = [
     id: 2,
     value: "订单管理",
     icon: "ProfileOutlined",
+    path: "",
   },
   {
     id: 3,
     value: "优惠券",
     icon: "PayCircleOutlined",
+    path: "",
   },
   {
     id: 4,
     value: "客户管理",
     icon: "RobotOutlined",
+    path: "",
   },
   {
     id: 5,
     value: "财务报表",
     icon: "TransactionOutlined",
+    path: "",
   },
   {
     id: 6,
     value: "商品类别",
     icon: "AppstoreOutlined",
+    path: "",
   },
   {
     id: 7,
@@ -38,10 +43,12 @@ export const product = [
       {
         id: 8,
         value: "消费者账户",
+        path:'/setting/user',
       },
       {
         id: 9,
         value: "管理员账户",
+        path:'/setting/manager'
       },
     ],
   },

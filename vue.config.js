@@ -23,7 +23,7 @@ module.exports = {
       };
     }
   },
-  css: {
+  css: {     //antd的主题配置
     loaderOptions: {
       less: {
         lessOptions: {
