@@ -12,7 +12,7 @@ export const Indexroutes = [
 ];
 export const Mainroutes = [
   {
-    path: "/admin/introduction",
+    path: "/admin",
     name: "Admin",
     component: () => import("../components/layout/layout"),
     children: [
@@ -20,13 +20,13 @@ export const Mainroutes = [
         path: "/admin/introduction",
         name: "Introduction",
         component: () => import("../views/introduction/introduction"),
-        meta: { name: "后台介绍", id: '0' },
+        meta: { name: "后台介绍", id: "0" },
       },
       {
         path: "/admin/product",
         name: "Product",
         component: () => import("../views/product-manage/index"),
-        meta: { name: "商品管理", id: '1' },
+        meta: { name: "商品管理", id: "1" },
       },
     ],
   },

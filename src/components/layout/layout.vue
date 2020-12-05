@@ -13,7 +13,7 @@
       >
         <template v-for="item in Menu" :key="item.id">
           <template v-if="!item.children">
-            <a-menu-item :key="''+item.id">
+            <a-menu-item :key="'' + item.id">
               <router-link :to="`${item.path}`">
                 <component :is="item.icon"></component>
                 <span class="nav-text">{{ item.value }}</span>
@@ -21,7 +21,7 @@
             </a-menu-item>
           </template>
           <template v-else>
-            <Aside :Menu="item" :key="''+item.id" />
+            <Aside :Menu="item" :key="'' + item.id" />
           </template>
         </template>
         <!-- <div v-for="item of Menu" :key="item.id">
@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import Aside from './aside';
+import Aside from "./aside";
 import {
   computed,
   isProxy,
@@ -75,11 +75,11 @@ import {
   isReadonly,
   reactive,
   ref,
-  toRaw,
-} from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-import Main from './main';
-import { useStore } from 'vuex';
+  toRaw
+} from "vue";
+import { useRoute, useRouter } from "vue-router";
+import Main from "./main";
+import { useStore } from "vuex";
 import {
   UserOutlined,
   BarsOutlined,
@@ -88,9 +88,9 @@ import {
   RobotOutlined,
   TransactionOutlined,
   AppstoreOutlined,
-  SettingOutlined,
-} from '@ant-design/icons-vue';
-import { getMenu } from '../../api/global/global-api';
+  SettingOutlined
+} from "@ant-design/icons-vue";
+import { getMenu } from "../../api/global/global-api";
 export default {
   components: {
     Main,
@@ -102,7 +102,7 @@ export default {
     TransactionOutlined,
     AppstoreOutlined,
     SettingOutlined,
-    Aside,
+    Aside
   },
   setup(props, content) {
     const route = useRoute();
@@ -110,7 +110,7 @@ export default {
     const store = useStore();
     const user_info = reactive({
       name: store.state.user.USER_DETAIL.name,
-      avatar: store.state.user.USER_DETAIL.avatar,
+      avatar: store.state.user.USER_DETAIL.avatar
     });
 
     const selectedKeys = computed(() => [route.meta.id]);
@@ -120,7 +120,7 @@ export default {
     });
     const quit = () => {
       localStorage.clear();
-      router.push('/');
+      router.push("/");
     };
     const title = computed(() => route.meta.name);
     const goMenu = (data) => {
@@ -133,9 +133,9 @@ export default {
       user_info,
       title,
       quit,
-      goMenu,
+      goMenu
     };
-  },
+  }
 };
 </script>
 
@@ -148,7 +148,7 @@ export default {
   line-height: 32px;
   font-size: 16px;
   text-align: center;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 #header {
   height: 50px;
@@ -157,7 +157,7 @@ export default {
     margin-left: 20px;
     color: #000;
     font-weight: 500;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Times New Roman", Times, serif;
     font-size: 20px;
   }
 

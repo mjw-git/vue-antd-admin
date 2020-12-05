@@ -21,7 +21,7 @@
         <span @click="clearForm" class="color">清空搜索记录</span>
       </a-form-item>
     </a-form>
-    <a-button type="danger">添加商品</a-button>
+    <a-button type="danger" @click="showAddModal">添加商品</a-button>
     <a-button
       @click="exportTable"
       :style="{ marginLeft: '10px' }"
@@ -48,6 +48,9 @@
         <span class="color">删除</span>
       </template>
     </a-table>
+    <modal-pro :title="title" :visible="visible" @ok="ok" @cancel="cancel">
+      <template #content>1</template>
+    </modal-pro>
   </div>
 </template>
 
@@ -55,7 +58,11 @@
 import XLSX from "xlsx";
 import { getTable } from "../../api/product/product";
 import { reactive, ref, toRef, toRaw, computed } from "vue";
+import modalPro from "../../components/modal/modal-pro";
 export default {
+  components: {
+    modalPro
+  },
   setup() {
     //搜索模块
     const search_form = ref("");
@@ -155,6 +162,18 @@ export default {
       XLSX.utils.book_append_sheet(wb, sheet, "sheetName");
       XLSX.writeFile(wb, "商品.xlsx");
     };
+    //添加商品弹框
+    const title = "添加商品";
+    const visible = ref(false);
+    const ok = () => {
+      visible.value = false;
+    };
+    const showAddModal = () => {
+      visible.value = true;
+    };
+    const cancel = () => {
+      visible.value = false;
+    };
     return {
       select_option,
       select_id,
@@ -165,7 +184,12 @@ export default {
       table,
       excel_title,
       pagination,
-      exportTable
+      exportTable,
+      title,
+      visible,
+      ok,
+      cancel,
+      showAddModal
     };
   }
 };
