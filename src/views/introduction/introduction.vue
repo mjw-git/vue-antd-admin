@@ -15,7 +15,7 @@
     </p>
     <p>3、支持侧边栏多级嵌套菜单,具体格式可参考mock/data.js下的product格式</p>
     <p>
-      4、对部分antd组件进行二次开发，封装成了符合当前需求的组件，可在component下查看
+      4、对部分antd组件进行二次开发，封装成了符合当前需求的组件，可在component文件夹下查看
     </p>
     <router-link to="/admin/product">点击开始</router-link>
   </div>

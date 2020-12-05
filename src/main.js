@@ -15,6 +15,7 @@ import {
   Select,
   Table,
   Modal,
+  Upload,
 } from "ant-design-vue";
 // import "ant-design-vue/dist/antd.less";
 import Mock from "./mock/mock.js";
@@ -32,7 +33,8 @@ app
   .use(Input)
   .use(Select)
   .use(Table)
-  .use(Modal);
+  .use(Modal)
+  .use(Upload);
 app.use(router);
 app.use(store);
 app.mount("#app");

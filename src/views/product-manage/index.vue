@@ -49,7 +49,20 @@
       </template>
     </a-table>
     <modal-pro :title="title" :visible="visible" @ok="ok" @cancel="cancel">
-      <template #content>1</template>
+      <template #content>
+        <a-form :label-col="label_col" :wrapper-col="wrapper_col">
+          <a-form-item
+            v-bind="validateInfos.product_name"
+            :label="label_title.product_name"
+            ><a-input v-model:value="product_modal_ref.product_name"
+          /></a-form-item>
+          <a-form-item
+            v-bind="validateInfos.product_price"
+            :label="label_title.product_price"
+            ><a-input v-model:value="product_modal_ref.product_price"
+          /></a-form-item>
+        </a-form>
+      </template>
     </modal-pro>
   </div>
 </template>
@@ -59,6 +72,7 @@ import XLSX from "xlsx";
 import { getTable } from "../../api/product/product";
 import { reactive, ref, toRef, toRaw, computed } from "vue";
 import modalPro from "../../components/modal/modal-pro";
+import { useForm } from "@ant-design-vue/use";
 export default {
   components: {
     modalPro
@@ -165,14 +179,51 @@ export default {
     //添加商品弹框
     const title = "添加商品";
     const visible = ref(false);
-    const ok = () => {
-      visible.value = false;
-    };
     const showAddModal = () => {
       visible.value = true;
     };
     const cancel = () => {
       visible.value = false;
+    };
+    //添加商品表单
+    const product_modal_ref = reactive({
+      product_name: "",
+      product_price: ""
+    });
+    const product_modal_rule = reactive({
+      product_name: [
+        {
+          required: true,
+          message: "请输入商品名称"
+        }
+      ],
+      product_price: [
+        {
+          required: true,
+          message: "请输入商品价格"
+        }
+      ]
+    });
+    const label_title = {
+      product_name: "商品名称",
+      product_price: "商品价格"
+    };
+    const label_col = { span: 4 };
+    const wrapper_col = { span: 14 };
+    const { resetFields, validate, validateInfos } = useForm(
+      product_modal_ref,
+      product_modal_rule
+    );
+    const ok = () => {
+      console.log(product_modal_ref.product_name);
+      validate()
+        .then(() => {
+          console.log(product_modal_ref.product_name);
+        })
+        .catch((err) => {
+          console.log("error", err);
+        });
+      // visible.value = false;
     };
     return {
       select_option,
@@ -189,7 +240,12 @@ export default {
       visible,
       ok,
       cancel,
-      showAddModal
+      showAddModal,
+      label_col,
+      wrapper_col,
+      label_title,
+      product_modal_ref,
+      validateInfos
     };
   }
 };
