@@ -2,8 +2,10 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import "./assets/css/global.less";
 import { instance } from "./untils/request";
 import {
+  ConfigProvider,
   Button,
   Layout,
   Menu,
@@ -15,6 +17,7 @@ import {
   Select,
   Table,
   Modal,
+  DatePicker,
   Upload,
 } from "ant-design-vue";
 // import "ant-design-vue/dist/antd.less";
@@ -34,7 +37,9 @@ app
   .use(Select)
   .use(Table)
   .use(Modal)
-  .use(Upload);
+  .use(ConfigProvider)
+  .use(Upload)
+  .use(DatePicker);
 app.use(router);
 app.use(store);
 app.mount("#app");

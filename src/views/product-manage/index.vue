@@ -61,6 +61,11 @@
             :label="label_title.product_price"
             ><a-input v-model:value="product_modal_ref.product_price"
           /></a-form-item>
+          <a-form-item
+            v-bind="validateInfos.product_stock"
+            :label="label_title.product_stock"
+            ><a-input v-model:value="product_modal_ref.product_stock"
+          /></a-form-item>
         </a-form>
       </template>
     </modal-pro>
@@ -188,7 +193,8 @@ export default {
     //添加商品表单
     const product_modal_ref = reactive({
       product_name: "",
-      product_price: ""
+      product_price: "",
+      product_stock: ""
     });
     const product_modal_rule = reactive({
       product_name: [
@@ -202,11 +208,18 @@ export default {
           required: true,
           message: "请输入商品价格"
         }
+      ],
+      product_stock: [
+        {
+          required: true,
+          message: "请输入商品的库存"
+        }
       ]
     });
     const label_title = {
       product_name: "商品名称",
-      product_price: "商品价格"
+      product_price: "商品价格",
+      product_stock: "商品库存"
     };
     const label_col = { span: 4 };
     const wrapper_col = { span: 14 };
