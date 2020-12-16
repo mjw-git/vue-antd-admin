@@ -16,7 +16,7 @@
         <span @click="clearForm" class="color">清空搜索记录</span>
       </a-form-item>
     </a-form>
-    <span class="color">添加活动</span>
+    <span @click="addActivity" class="color">添加活动</span>
     <a-table
       :pagination="pagination"
       :columns="column"
@@ -33,9 +33,11 @@
 
 <script>
 import moment from "moment";
+import { useRouter } from "vue-router";
 import { reactive, computed, ref } from "vue";
 export default {
   setup() {
+    const router = useRouter();
     const search_form = reactive({
       activity_name: "",
       activity_time: []
@@ -56,7 +58,8 @@ export default {
           activity_img: "",
           activity_product: "活动商品",
           activity_time: "2020-10-2~2020-10-3",
-          activity_discount: 9
+          activity_discount: 9,
+          activity_status: "进行中"
         }
       ]
     });
@@ -111,13 +114,18 @@ export default {
         slots: { customRender: "action" }
       }
     ]);
+    //添加活动
+    const addActivity = () => {
+      router.push("/admin/activity/add");
+    };
     //表格部分
     return {
       search_form,
       clearForm,
       column,
       pagination,
-      table
+      table,
+      addActivity
     };
   }
 };
