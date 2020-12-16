@@ -13,9 +13,9 @@ export const product = [
   },
   {
     id: 3,
-    value: "优惠券",
+    value: "活动设置",
     icon: "PayCircleOutlined",
-    path: "",
+    path: "/admin/activity",
   },
   {
     id: 4,
@@ -43,12 +43,12 @@ export const product = [
       {
         id: 8,
         value: "消费者账户",
-        path:'/setting/user',
+        path: "/setting/user",
       },
       {
         id: 9,
         value: "管理员账户",
-        path:'/setting/manager'
+        path: "/setting/manager",
       },
     ],
   },

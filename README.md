@@ -11,7 +11,7 @@ vue3 文档查看这里https://vue3js.cn/docs/zh/guide/introduction.html
 
 #### 3、 支持 mock 数据
 
-### 4、支持嵌套菜单（目前只支持二级）
+### 4、支持嵌套菜单
 
 ```
 yarn install

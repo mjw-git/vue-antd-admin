@@ -1,6 +1,7 @@
 <template>
   <div class="box">
     <a-modal
+      :width="width"
       :title="title"
       :maskClosable="maskClosable"
       :visible="visible"
@@ -68,6 +69,10 @@ export default {
       //点击蒙层是否关闭
       type: Boolean,
       default: true
+    },
+    width: {
+      type: Number,
+      default: 500
     }
   },
   setup(props, { emit }) {
