@@ -18,7 +18,7 @@
         <a-button type="primary">搜索</a-button>
       </a-form-item>
       <a-form-item>
-        <span @click="clearForm" class="color">清空搜索记录111</span>
+        <span @click="clearForm" class="color">清空搜索记录</span>
       </a-form-item>
     </a-form>
     <a-button type="danger" @click="showAddModal">添加商品</a-button>
